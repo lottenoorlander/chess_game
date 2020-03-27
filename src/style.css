@@ -1,0 +1,12 @@
+.title {
+  color: red;
+}
+
+.chessboard {
+  width: 50vw;
+  height: 50vw;
+}
+
+.title-and-board {
+  text-align: center;
+}
