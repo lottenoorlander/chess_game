@@ -20,7 +20,6 @@ function drawBoard(canvas, width, height) {
   for (let i = 0; i <= height; i++) {
     for (let j = 0; j <= width; j++) {
       const color = getColor(i, j);
-      console.log(i, j, color);
       drawTile(chessboard, 100, color, i, j);
     }
   }

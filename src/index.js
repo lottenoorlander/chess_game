@@ -3,6 +3,7 @@ import "./style.css";
 import printMe from "./print.js";
 import title from "./title.js";
 import chessboard from "./chessboard.js";
+import footer from "./footer.js";
 
 function component() {
   const element = document.createElement("div");
@@ -15,6 +16,8 @@ function component() {
   button.innerHTML = "Click me!";
   button.onclick = printMe;
   element.appendChild(button);
+
+  element.append(footer());
 
   return element;
 }
