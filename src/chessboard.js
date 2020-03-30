@@ -1,5 +1,6 @@
 import "./chessboard.css";
 import bishop from "./chess-pieces/bishop";
+import horse from "./chess-pieces/horse";
 
 export default function chessboard(width, height) {
   const canvas = drawCanvas(width, height);
@@ -52,7 +53,8 @@ function drawTile(board, width, color, x, y) {
 function drawPiece(board, x, y) {
   //check if there should be a piece/
   //draw piece
-  bishop(board, 0, 0, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
+  // bishop(board, 0, 0, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
+  // horse(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
 }
 
 const PiecesSetup = [
