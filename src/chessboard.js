@@ -1,6 +1,7 @@
 import "./chessboard.css";
 import bishop from "./chess-pieces/bishop";
 import horse from "./chess-pieces/horse";
+import pawn from "./chess-pieces/pawn";
 
 export default function chessboard(width, height) {
   const canvas = drawCanvas(width, height);
@@ -55,6 +56,7 @@ function drawPiece(board, x, y) {
   //draw piece
   // bishop(board, 0, 0, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
   // horse(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
+  // pawn(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
 }
 
 const PiecesSetup = [
