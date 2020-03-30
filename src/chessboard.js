@@ -4,6 +4,7 @@ import horse from "./chess-pieces/horse";
 import pawn from "./chess-pieces/pawn";
 import king from "./chess-pieces/king";
 import queen from "./chess-pieces/queen";
+import rook from "./chess-pieces/rook";
 
 export default function chessboard(width, height) {
   const canvas = drawCanvas(width, height);
@@ -60,7 +61,8 @@ function drawPiece(board, x, y) {
   // horse(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
   // pawn(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
   // king(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
-  queen(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
+  // queen(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
+  // rook(board, 2, 6, "down", "rgb(0,0,0)", "rgb(255, 255, 255)");
 }
 
 const PiecesSetup = [
