@@ -60,6 +60,7 @@ function drawPiece(board, x, y) {
   // horse(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
   // pawn(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
   // king(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
+  queen(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
 }
 
 const PiecesSetup = [
