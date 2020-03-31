@@ -1,263 +1,259 @@
-export default function rook(ctx, x, y, upOrDown, color, negativeColor) {
-  let up = true;
-  if (upOrDown === "down") {
-    up = false;
-  }
+import { negativeColorCalculator, colorCalculator, isUp } from "./calculators";
 
-  let black = true;
-  if (color === "rbg(255,255,255)") {
-    black = false;
-  }
+export default function rook(board, x, y, colorOfPiece) {
+  let color = colorCalculator(colorOfPiece);
+  let negativeColor = negativeColorCalculator(colorOfPiece);
+  let up = isUp("up");
 
   // #path1737
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "round";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "round";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(9.0, 39.000586);
-    ctx.lineTo(36.0, 39.000586);
-    ctx.lineTo(36.0, 36.0);
-    ctx.lineTo(9.0, 36.0);
-    ctx.moveTo(9.0, 39.000586);
+    board.moveTo(9.0, 39.000586);
+    board.lineTo(36.0, 39.000586);
+    board.lineTo(36.0, 36.0);
+    board.lineTo(9.0, 36.0);
+    board.moveTo(9.0, 39.000586);
   } else {
-    ctx.moveTo(9.0, 5.999414);
-    ctx.lineTo(36.0, 5.999414);
-    ctx.lineTo(36.0, 9.0);
-    ctx.lineTo(9.0, 9.0);
-    ctx.moveTo(9.0, 5.999414);
+    board.moveTo(9.0, 5.999414);
+    board.lineTo(36.0, 5.999414);
+    board.lineTo(36.0, 9.0);
+    board.lineTo(9.0, 9.0);
+    board.moveTo(9.0, 5.999414);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1739
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "round";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "round";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(12.000586, 36.0);
-    ctx.lineTo(12.000586, 31.999219);
-    ctx.lineTo(32.999414, 31.999219);
-    ctx.lineTo(32.999414, 36.0);
-    ctx.moveTo(12.000586, 36.0);
+    board.moveTo(12.000586, 36.0);
+    board.lineTo(12.000586, 31.999219);
+    board.lineTo(32.999414, 31.999219);
+    board.lineTo(32.999414, 36.0);
+    board.moveTo(12.000586, 36.0);
   } else {
-    ctx.moveTo(12.499805, 13.000781);
-    ctx.lineTo(13.999219, 15.500391);
-    ctx.lineTo(31.000781, 15.500391);
-    ctx.lineTo(32.500195, 13.000781);
-    ctx.moveTo(12.499805, 13.000781);
+    board.moveTo(12.499805, 13.000781);
+    board.lineTo(13.999219, 15.500391);
+    board.lineTo(31.000781, 15.500391);
+    board.lineTo(32.500195, 13.000781);
+    board.moveTo(12.499805, 13.000781);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1741
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "round";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "round";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(11.000391, 13.999219);
-    ctx.lineTo(11.000391, 9.0);
-    ctx.lineTo(14.999414, 9.0);
-    ctx.lineTo(14.999414, 11.000391);
-    ctx.lineTo(20.000391, 11.000391);
-    ctx.lineTo(20.000391, 9.0);
-    ctx.lineTo(24.999609, 9.0);
-    ctx.lineTo(24.999609, 11.000391);
-    ctx.lineTo(30.000586, 11.000391);
-    ctx.lineTo(30.000586, 9.0);
-    ctx.lineTo(33.999609, 9.0);
-    ctx.lineTo(33.999609, 13.999219);
+    board.moveTo(11.000391, 13.999219);
+    board.lineTo(11.000391, 9.0);
+    board.lineTo(14.999414, 9.0);
+    board.lineTo(14.999414, 11.000391);
+    board.lineTo(20.000391, 11.000391);
+    board.lineTo(20.000391, 9.0);
+    board.lineTo(24.999609, 9.0);
+    board.lineTo(24.999609, 11.000391);
+    board.lineTo(30.000586, 11.000391);
+    board.lineTo(30.000586, 9.0);
+    board.lineTo(33.999609, 9.0);
+    board.lineTo(33.999609, 13.999219);
   } else {
-    ctx.moveTo(12.000586, 9.0);
-    ctx.lineTo(12.000586, 13.000781);
-    ctx.lineTo(32.999414, 13.000781);
-    ctx.lineTo(32.999414, 9.0);
-    ctx.moveTo(12.000586, 9.0);
+    board.moveTo(12.000586, 9.0);
+    board.lineTo(12.000586, 13.000781);
+    board.lineTo(32.999414, 13.000781);
+    board.lineTo(32.999414, 9.0);
+    board.moveTo(12.000586, 9.0);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1743
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "miter";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "miter";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(33.999609, 13.999219);
-    ctx.lineTo(31.000781, 16.999805);
-    ctx.lineTo(13.999219, 16.999805);
-    ctx.lineTo(11.000391, 13.999219);
+    board.moveTo(33.999609, 13.999219);
+    board.lineTo(31.000781, 16.999805);
+    board.lineTo(13.999219, 16.999805);
+    board.lineTo(11.000391, 13.999219);
   } else {
-    ctx.moveTo(13.999219, 15.500391);
-    ctx.lineTo(13.999219, 28.499414);
-    ctx.lineTo(31.000781, 28.499414);
-    ctx.lineTo(31.000781, 15.500391);
-    ctx.moveTo(13.999219, 15.500391);
+    board.moveTo(13.999219, 15.500391);
+    board.lineTo(13.999219, 28.499414);
+    board.lineTo(31.000781, 28.499414);
+    board.lineTo(31.000781, 15.500391);
+    board.moveTo(13.999219, 15.500391);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1745
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "round";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "round";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(31.000781, 16.999805);
-    ctx.lineTo(31.000781, 29.499609);
-    ctx.lineTo(13.999219, 29.499609);
-    ctx.lineTo(13.999219, 16.999805);
+    board.moveTo(31.000781, 16.999805);
+    board.lineTo(31.000781, 29.499609);
+    board.lineTo(13.999219, 29.499609);
+    board.lineTo(13.999219, 16.999805);
   } else {
-    ctx.moveTo(13.999219, 28.499414);
-    ctx.lineTo(11.000391, 31.000781);
-    ctx.lineTo(33.999609, 31.000781);
-    ctx.lineTo(31.000781, 28.499414);
-    ctx.moveTo(13.999219, 28.499414);
+    board.moveTo(13.999219, 28.499414);
+    board.lineTo(11.000391, 31.000781);
+    board.lineTo(33.999609, 31.000781);
+    board.lineTo(31.000781, 28.499414);
+    board.moveTo(13.999219, 28.499414);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1747
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "round";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "butt";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "round";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "butt";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(31.000781, 29.499609);
-    ctx.lineTo(32.500195, 31.999219);
-    ctx.lineTo(12.499805, 31.999219);
-    ctx.lineTo(13.999219, 29.499609);
+    board.moveTo(31.000781, 29.499609);
+    board.lineTo(32.500195, 31.999219);
+    board.lineTo(12.499805, 31.999219);
+    board.lineTo(13.999219, 29.499609);
   } else {
-    ctx.moveTo(11.000391, 31.000781);
-    ctx.lineTo(11.000391, 36.0);
-    ctx.lineTo(14.999414, 36.0);
-    ctx.lineTo(14.999414, 33.999609);
-    ctx.lineTo(20.000391, 33.999609);
-    ctx.lineTo(20.000391, 36.0);
-    ctx.lineTo(24.999609, 36.0);
-    ctx.lineTo(24.999609, 33.999609);
-    ctx.lineTo(30.000586, 33.999609);
-    ctx.lineTo(30.000586, 36.0);
-    ctx.lineTo(33.999609, 36.0);
-    ctx.lineTo(33.999609, 31.000781);
-    ctx.moveTo(11.000391, 31.000781);
+    board.moveTo(11.000391, 31.000781);
+    board.lineTo(11.000391, 36.0);
+    board.lineTo(14.999414, 36.0);
+    board.lineTo(14.999414, 33.999609);
+    board.lineTo(20.000391, 33.999609);
+    board.lineTo(20.000391, 36.0);
+    board.lineTo(24.999609, 36.0);
+    board.lineTo(24.999609, 33.999609);
+    board.lineTo(30.000586, 33.999609);
+    board.lineTo(30.000586, 36.0);
+    board.lineTo(33.999609, 36.0);
+    board.lineTo(33.999609, 31.000781);
+    board.moveTo(11.000391, 31.000781);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 
   // #path1749
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-  ctx.lineJoin = "miter";
-  ctx.strokeStyle = negativeColor;
-  ctx.lineCap = "round";
-  ctx.miterLimit = 4;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "miter";
+  board.strokeStyle = negativeColor;
+  board.lineCap = "round";
+  board.miterLimit = 4;
   if (up) {
-    ctx.lineWidth = 1.125;
-    ctx.moveTo(11.000391, 13.999219);
-    ctx.lineTo(33.999609, 13.999219);
+    board.lineWidth = 1.125;
+    board.moveTo(11.000391, 13.999219);
+    board.lineTo(33.999609, 13.999219);
   } else {
-    ctx.lineWidth = 0.75;
-    ctx.moveTo(12.000586, 9.499219);
-    ctx.lineTo(32.999414, 9.499219);
+    board.lineWidth = 0.75;
+    board.moveTo(12.000586, 9.499219);
+    board.lineTo(32.999414, 9.499219);
   }
-  ctx.stroke();
-  ctx.restore();
+  board.stroke();
+  board.restore();
 
   if (!up) {
     // #path1751
-    ctx.save();
-    ctx.beginPath();
-    ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-    ctx.lineJoin = "miter";
-    ctx.strokeStyle = negativeColor;
-    ctx.lineCap = "round";
-    ctx.miterLimit = 4;
-    ctx.lineWidth = 0.75;
-    ctx.moveTo(13.000781, 13.5);
-    ctx.lineTo(31.999219, 13.5);
-    ctx.stroke();
-    ctx.restore();
+    board.save();
+    board.beginPath();
+    board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+    board.lineJoin = "miter";
+    board.strokeStyle = negativeColor;
+    board.lineCap = "round";
+    board.miterLimit = 4;
+    board.lineWidth = 0.75;
+    board.moveTo(13.000781, 13.5);
+    board.lineTo(31.999219, 13.5);
+    board.stroke();
+    board.restore();
 
     // #path1753
-    ctx.save();
-    ctx.beginPath();
-    ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-    ctx.lineJoin = "miter";
-    ctx.strokeStyle = negativeColor;
-    ctx.lineCap = "round";
-    ctx.miterLimit = 4;
-    ctx.lineWidth = 0.75;
-    ctx.moveTo(13.999219, 15.500391);
-    ctx.lineTo(31.000781, 15.500391);
-    ctx.stroke();
-    ctx.restore();
+    board.save();
+    board.beginPath();
+    board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+    board.lineJoin = "miter";
+    board.strokeStyle = negativeColor;
+    board.lineCap = "round";
+    board.miterLimit = 4;
+    board.lineWidth = 0.75;
+    board.moveTo(13.999219, 15.500391);
+    board.lineTo(31.000781, 15.500391);
+    board.stroke();
+    board.restore();
 
     // #path1755
-    ctx.save();
-    ctx.beginPath();
-    ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-    ctx.lineJoin = "miter";
-    ctx.strokeStyle = negativeColor;
-    ctx.lineCap = "round";
-    ctx.miterLimit = 4;
-    ctx.lineWidth = 0.75;
-    ctx.moveTo(13.999219, 28.499414);
-    ctx.lineTo(31.000781, 28.499414);
-    ctx.stroke();
-    ctx.restore();
+    board.save();
+    board.beginPath();
+    board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+    board.lineJoin = "miter";
+    board.strokeStyle = negativeColor;
+    board.lineCap = "round";
+    board.miterLimit = 4;
+    board.lineWidth = 0.75;
+    board.moveTo(13.999219, 28.499414);
+    board.lineTo(31.000781, 28.499414);
+    board.stroke();
+    board.restore();
 
     // #path1757
-    ctx.save();
-    ctx.beginPath();
-    ctx.transform(2.222222, 0.0, 0.0, 2.222222, 0.0, 0.0);
-    ctx.lineJoin = "miter";
-    ctx.strokeStyle = negativeColor;
-    ctx.lineCap = "round";
-    ctx.miterLimit = 4;
-    ctx.lineWidth = 0.75;
-    ctx.moveTo(11.000391, 31.000781);
-    ctx.lineTo(33.999609, 31.000781);
-    ctx.stroke();
-    ctx.restore();
+    board.save();
+    board.beginPath();
+    board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+    board.lineJoin = "miter";
+    board.strokeStyle = negativeColor;
+    board.lineCap = "round";
+    board.miterLimit = 4;
+    board.lineWidth = 0.75;
+    board.moveTo(11.000391, 31.000781);
+    board.lineTo(33.999609, 31.000781);
+    board.stroke();
+    board.restore();
   }
 }

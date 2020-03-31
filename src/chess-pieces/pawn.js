@@ -1,23 +1,23 @@
-export default function(ctx, x, y, upOrDown, color, negativeColor) {
-  let up = true;
-  if (upOrDown === "down") {
-    up = false;
-  }
+import { colorCalculator, isUp } from "./calculators";
+
+export default function(board, x, y, colorOfPiece) {
+  let color = colorCalculator(colorOfPiece);
+  let up = isUp("up");
 
   // #path1726
-  ctx.save();
-  ctx.beginPath();
-  ctx.transform(2.222222, 0.0, 0.0, 2.222222, x * 100 + 0.0, y * 100 + 0.0);
-  ctx.lineJoin = "miter";
-  ctx.strokeStyle = "rgb(0, 0, 0)";
-  ctx.lineCap = "round";
-  ctx.miterLimit = 4;
-  ctx.lineWidth = 1.125;
-  ctx.fillStyle = color;
+  board.save();
+  board.beginPath();
+  board.transform(2.222222, 0.0, 0.0, 2.222222, y * 100 + 0.0, x * 100 + 0.0);
+  board.lineJoin = "miter";
+  board.strokeStyle = "rgb(0, 0, 0)";
+  board.lineCap = "round";
+  board.miterLimit = 4;
+  board.lineWidth = 1.125;
+  board.fillStyle = color;
   if (up) {
-    ctx.moveTo(22.000781, 9.0);
-    ctx.bezierCurveTo(19.789453, 9.0, 18.0, 10.789453, 18.0, 13.000781);
-    ctx.bezierCurveTo(
+    board.moveTo(22.000781, 9.0);
+    board.bezierCurveTo(19.789453, 9.0, 18.0, 10.789453, 18.0, 13.000781);
+    board.bezierCurveTo(
       18.0,
       13.890234,
       18.290039,
@@ -25,7 +25,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       18.780469,
       15.380859
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       16.829297,
       16.500586,
       15.500391,
@@ -33,7 +33,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       15.500391,
       21.000586
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       15.500391,
       23.030859,
       16.44082,
@@ -41,7 +41,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       17.910352,
       26.029687
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       14.909766,
       27.089648,
       10.499414,
@@ -49,8 +49,8 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       10.499414,
       39.499805
     );
-    ctx.lineTo(33.500391, 39.499805);
-    ctx.bezierCurveTo(
+    board.lineTo(33.500391, 39.499805);
+    board.bezierCurveTo(
       33.500391,
       31.580859,
       29.090039,
@@ -58,7 +58,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       26.089453,
       26.029687
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       27.560742,
       24.839648,
       28.499414,
@@ -66,7 +66,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       28.499414,
       21.000586
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       28.499414,
       18.590625,
       27.170508,
@@ -74,7 +74,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       25.219336,
       15.380859
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       25.709766,
       14.709375,
       25.999805,
@@ -82,11 +82,11 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       25.999805,
       13.000781
     );
-    ctx.bezierCurveTo(25.999805, 10.789453, 24.210352, 9.0, 22.000781, 9.0);
-    ctx.moveTo(22.000781, 9.0);
+    board.bezierCurveTo(25.999805, 10.789453, 24.210352, 9.0, 22.000781, 9.0);
+    board.moveTo(22.000781, 9.0);
   } else {
-    ctx.moveTo(22.000781, 39.499805);
-    ctx.bezierCurveTo(
+    board.moveTo(22.000781, 39.499805);
+    board.bezierCurveTo(
       24.208594,
       39.499805,
       25.999805,
@@ -94,7 +94,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       25.999805,
       35.500781
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       25.999805,
       34.614844,
       25.70625,
@@ -102,7 +102,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       25.219336,
       33.124219
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       27.170508,
       32.002734,
       28.499414,
@@ -110,7 +110,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       28.499414,
       27.499219
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       28.499414,
       25.46543,
       27.557227,
@@ -118,7 +118,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       26.092969,
       22.468359
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       29.093555,
       21.410156,
       33.500391,
@@ -126,8 +126,8 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       33.500391,
       9.0
     );
-    ctx.lineTo(10.499414, 9.0);
-    ctx.bezierCurveTo(
+    board.lineTo(10.499414, 9.0);
+    board.bezierCurveTo(
       10.499414,
       16.922461,
       14.90625,
@@ -135,7 +135,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       17.906836,
       22.468359
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       16.442578,
       23.660156,
       15.500391,
@@ -143,7 +143,7 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       15.500391,
       27.499219
     );
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(
       15.500391,
       29.910937,
       16.829297,
@@ -151,8 +151,8 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       18.780469,
       33.124219
     );
-    ctx.bezierCurveTo(18.293555, 33.786914, 18.0, 34.614844, 18.0, 35.500781);
-    ctx.bezierCurveTo(
+    board.bezierCurveTo(18.293555, 33.786914, 18.0, 34.614844, 18.0, 35.500781);
+    board.bezierCurveTo(
       18.0,
       37.708594,
       19.791211,
@@ -160,9 +160,9 @@ export default function(ctx, x, y, upOrDown, color, negativeColor) {
       22.000781,
       39.499805
     );
-    ctx.moveTo(22.000781, 39.499805);
+    board.moveTo(22.000781, 39.499805);
   }
-  ctx.fill();
-  ctx.stroke();
-  ctx.restore();
+  board.fill();
+  board.stroke();
+  board.restore();
 }

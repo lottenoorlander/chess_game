@@ -1,10 +1,105 @@
-import "./chessboard.css";
 import bishop from "./chess-pieces/bishop";
 import horse from "./chess-pieces/horse";
 import pawn from "./chess-pieces/pawn";
 import king from "./chess-pieces/king";
 import queen from "./chess-pieces/queen";
 import rook from "./chess-pieces/rook";
+import "./chessboard.css";
+
+const initialSetup = [
+  [
+    { piece: "rook", color: "black" },
+    { piece: "horse", color: "black" },
+    { piece: "bishop", color: "black" },
+    { piece: "queen", color: "black" },
+    { piece: "king", color: "black" },
+    { piece: "bishop", color: "black" },
+    { piece: "horse", color: "black" },
+    { piece: "rook", color: "black" }
+  ],
+  [
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" },
+    { piece: "pawn", color: "black" }
+  ],
+  [
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" }
+  ],
+  [
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" }
+  ],
+  [
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" }
+  ],
+  [
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" },
+    { piece: "empty", color: "empty" }
+  ],
+  [
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" },
+    { piece: "pawn", color: "white" }
+  ],
+  [
+    { piece: "rook", color: "white" },
+    { piece: "horse", color: "white" },
+    { piece: "bishop", color: "white" },
+    { piece: "queen", color: "white" },
+    { piece: "king", color: "white" },
+    { piece: "bishop", color: "white" },
+    { piece: "horse", color: "white" },
+    { piece: "rook", color: "white" }
+  ]
+];
+
+let pieceDrawerFunctions = {
+  rook,
+  horse,
+  bishop,
+  queen,
+  king,
+  pawn,
+  empty: () => {}
+};
+
+let boardState = [...initialSetup];
 
 export default function chessboard(width, height) {
   const canvas = drawCanvas(width, height);
@@ -23,8 +118,8 @@ function drawCanvas(width, height) {
 function drawBoard(canvas, width, height) {
   const chessboard = canvas.getContext("2d");
 
-  for (let i = 0; i <= height; i++) {
-    for (let j = 0; j <= width; j++) {
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) {
       const color = getColor(i, j);
       drawTile(chessboard, 100, color, i, j);
       drawPiece(chessboard, i, j);
@@ -55,59 +150,7 @@ function drawTile(board, width, color, x, y) {
 }
 
 function drawPiece(board, x, y) {
-  //check if there should be a piece/
-  //draw piece
-  // bishop(board, 0, 0, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
-  // horse(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
-  // pawn(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
-  // king(board, 2, 6, "up", "rgb(0,0,0)", "rgb(255, 255, 255)");
-  // queen(board, 2, 6, "up", "rgb(255, 255, 255)", "rgb(0,0,0)");
-  // rook(board, 2, 6, "down", "rgb(0,0,0)", "rgb(255, 255, 255)");
+  let pieceToDraw = boardState[x][y].piece;
+  let colorToDraw = boardState[x][y].color;
+  pieceDrawerFunctions[pieceToDraw](board, x, y, colorToDraw);
 }
-
-const PiecesSetup = [
-  [
-    "black_rook",
-    "black_horse",
-    "black_bishop",
-    "black_queen",
-    "black_king",
-    "black_bishop",
-    "black_horse",
-    "black_rook"
-  ],
-  [
-    "black_pawn",
-    "black_pawn",
-    "black_pawn",
-    "black_pawn",
-    "black_pawn",
-    "black_pawn",
-    "black_pawn",
-    "black_pawn"
-  ],
-  ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-  ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-  ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-  ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-  [
-    "white_pawn",
-    "white_pawn",
-    "white_pawn",
-    "white_pawn",
-    "white_pawn",
-    "white_pawn",
-    "white_pawn",
-    "white_pawn"
-  ],
-  [
-    "white_rook",
-    "white_horse",
-    "white_bishop",
-    "white_queen",
-    "white_king",
-    "white_bishop",
-    "white_horse",
-    "white_rook"
-  ]
-];
