@@ -131,15 +131,15 @@ function drawBoard(canvas, width, height) {
 function getColor(x, y) {
   if (y % 2 === 0) {
     if (x % 2 === 0) {
-      return "white";
+      return "khaki";
     } else {
-      return "black";
+      return "chocolate";
     }
   } else {
     if (x % 2 === 0) {
-      return "black";
+      return "chocolate";
     } else {
-      return "white";
+      return "khaki";
     }
   }
 }
